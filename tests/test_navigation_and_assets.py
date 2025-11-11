@@ -8,35 +8,9 @@ These tests verify that:
 - No critical resources return 404 errors
 """
 
-import subprocess
-import time
-import pytest
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-
-
-@pytest.fixture(scope="module")
-def docker_container():
-    """Start docker compose container for tests, tear down after."""
-    # Start container
-    subprocess.run(
-        ["docker", "compose", "up", "-d"],
-        capture_output=True,
-        check=True,
-    )
-
-    # Wait for container to be ready
-    time.sleep(3)
-
-    # Yield to run tests
-    yield
-
-    # Tear down container
-    subprocess.run(
-        ["docker", "compose", "down"],
-        capture_output=True,
-    )
 
 
 def test_index_page_has_navigation_links(docker_container):
