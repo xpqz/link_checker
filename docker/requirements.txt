@@ -4,5 +4,4 @@ mkdocs-macros-plugin
 mkdocs-monorepo-plugin
 mkdocs-minify-plugin
 mkdocs-caption
-mkdocs-privacy-plugin
-mkdocs-markdown-tables-extended
+markdown-tables-extended
