@@ -1,0 +1,37 @@
+site_name: Test Documentation
+site_url: https://example.com/
+repo_url: https://github.com/example/test
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+
+plugins:
+  - search
+  - macros
+  - minify:
+      minify_html: true
+  - caption:
+      table:
+        enable: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.keys
+  - attr_list
+  - footnotes
+  - markdown_tables_extended
+  - toc:
+      title: On this page
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Features:
+      - Overview: features/overview.md
+      - Advanced: features/advanced.md
+  - API Reference: api.md
