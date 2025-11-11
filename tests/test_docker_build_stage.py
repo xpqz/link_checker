@@ -62,12 +62,12 @@ def test_docker_image_exists():
 
     # Check that image exists
     result = subprocess.run(
-        ["docker", "images", "-q", "claudews-docs-server"],
+        ["docker", "images", "-q", "dyalog-docs-server"],
         capture_output=True,
         text=True,
     )
 
-    assert result.stdout.strip(), "Docker image 'claudews-docs-server' was not created"
+    assert result.stdout.strip(), "Docker image 'dyalog-docs-server' was not created"
 
 
 def test_docker_image_size_reasonable():
@@ -84,7 +84,7 @@ def test_docker_image_size_reasonable():
 
     # Get image size
     result = subprocess.run(
-        ["docker", "images", "claudews-docs-server", "--format", "{{.Size}}"],
+        ["docker", "images", "dyalog-docs-server", "--format", "{{.Size}}"],
         capture_output=True,
         text=True,
     )
