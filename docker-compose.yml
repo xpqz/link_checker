@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
+    image: dyalog-docs-server
     container_name: dyalog-docs-server
     ports:
       - "8080:80"
