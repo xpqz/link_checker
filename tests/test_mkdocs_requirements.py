@@ -23,8 +23,8 @@ def _get_required_dependencies_from_mkdocs_config():
         required.add("mkdocs-material")
 
     # Map plugins to their package names
+    # Note: privacy plugin is built into mkdocs-material, no separate package needed
     plugin_to_package = {
-        "privacy": "mkdocs-privacy-plugin",
         "macros": "mkdocs-macros-plugin",
         "monorepo": "mkdocs-monorepo-plugin",
         "minify": "mkdocs-minify-plugin",
@@ -39,8 +39,10 @@ def _get_required_dependencies_from_mkdocs_config():
             required.add(plugin_to_package[plugin_name])
 
     # Map markdown extensions to their package names
+    # Note: Most markdown extensions are built into Python-Markdown or pymdown-extensions
+    # Only list here if they require a separate package
     extension_to_package = {
-        "markdown_tables_extended": "mkdocs-markdown-tables-extended",
+        "markdown_tables_extended": "markdown-tables-extended",
     }
 
     # Add markdown extension requirements
