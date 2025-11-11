@@ -1,0 +1,13 @@
+services:
+  docs-server:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: dyalog-docs-server
+    ports:
+      - "8080:80"
+    volumes:
+      # Mount test-docs by default for fast development
+      # To use full docs: change to ./dyalog-docs:/docs
+      - ./test-docs:/docs
+    restart: unless-stopped
