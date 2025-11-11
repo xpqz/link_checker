@@ -27,11 +27,11 @@ def test_nginx_conf_exists():
 def test_docker_directory_structure_complete():
     """Verify complete directory structure matches plan.
 
-    This test verifies that the docker/ directory contains exactly
-    the expected files: Dockerfile and nginx.conf.
+    This test verifies that the docker/ directory contains the core
+    Docker infrastructure files: Dockerfile, nginx.conf, and requirements.txt.
     """
     docker_dir = Path("docker")
-    expected_files = {"Dockerfile", "nginx.conf"}
+    expected_files = {"Dockerfile", "nginx.conf", "requirements.txt"}
 
     # Get actual files (excluding hidden files and __pycache__)
     actual_files = {
