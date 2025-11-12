@@ -1,32 +1,7 @@
 """Tests for nginx runtime (Task 1.7)."""
 
-import subprocess
 import time
 import requests
-import pytest
-
-
-@pytest.fixture(scope="module")
-def docker_container():
-    """Start docker compose container for tests, tear down after."""
-    # Start container
-    subprocess.run(
-        ["docker", "compose", "up", "-d"],
-        capture_output=True,
-        check=True,
-    )
-
-    # Wait for container to be ready
-    time.sleep(3)
-
-    # Yield to run tests
-    yield
-
-    # Tear down container
-    subprocess.run(
-        ["docker", "compose", "down"],
-        capture_output=True,
-    )
 
 
 def test_index_page_returns_200(docker_container):
