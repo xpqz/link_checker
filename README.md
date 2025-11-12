@@ -16,6 +16,81 @@ uv sync
 
 Placeholder for usage instructions.
 
+## Docker Setup
+
+The project includes Docker infrastructure for serving the Dyalog documentation locally using MkDocs and nginx. This provides a consistent, isolated environment for development and testing.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+
+### Building the Docker Image
+
+Build the documentation server image:
+
+```bash
+docker compose build
+```
+
+This creates a container with:
+- nginx web server (Alpine Linux base)
+- Python 3 and MkDocs with Material theme
+- All required MkDocs plugins
+
+### Starting the Documentation Server
+
+Start the server in detached mode:
+
+```bash
+docker compose up -d
+```
+
+The documentation will be built automatically on container startup and served at:
+
+http://localhost:8080/
+
+### Stopping the Server
+
+Stop and remove the container:
+
+```bash
+docker compose down
+```
+
+### Configuration
+
+By default, the server uses test documentation from `test-docs/` for fast iteration.
+
+To serve the full Dyalog documentation, set the `DOCS_DIR` environment variable:
+
+```bash
+DOCS_DIR=dyalog-docs docker compose up -d
+```
+
+To switch back to test documentation:
+
+```bash
+docker compose down
+docker compose up -d  # Uses test-docs by default
+```
+
+### Troubleshooting
+
+Check container logs:
+
+```bash
+docker compose logs
+```
+
+Rebuild after configuration changes:
+
+```bash
+docker compose down
+docker compose build --no-cache
+docker compose up -d
+```
+
 ## Testing
 
 Run tests:
