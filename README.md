@@ -60,11 +60,20 @@ docker compose down
 
 ### Configuration
 
-By default, the server uses test documentation from `test-docs/` for fast iteration. To serve the full Dyalog documentation:
+By default, the server uses test documentation from `test-docs/` for fast iteration.
 
-1. Edit `docker-compose.yml`
-2. Change the volume mount from `./test-docs:/docs` to `./dyalog-docs:/docs`
-3. Restart the container with `docker compose up -d`
+To serve the full Dyalog documentation, set the `DOCS_DIR` environment variable:
+
+```bash
+DOCS_DIR=dyalog-docs docker compose up -d
+```
+
+To switch back to test documentation:
+
+```bash
+docker compose down
+docker compose up -d  # Uses test-docs by default
+```
 
 ### Troubleshooting
 
